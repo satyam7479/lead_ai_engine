@@ -1,15 +1,18 @@
+# Description: Define the agents and tasks for the Lead Processing Crew
 from crewai import Agent, Crew, Task, Process
 from crewai.project import CrewBase, agent, crew, task
 import os
 from dotenv import load_dotenv
-from app.config.helper.llm_helper import LlmHelper
+from app.helper.llm_helper import LlmHelper
 
+# Load environment variables
 load_dotenv()
 
 # Load LLM configuration (Gemini or Ollama)
 llm = LlmHelper.GeminiConnection()
 # llm = LlmHelper.llamaConnection()
 
+# Define the Lead Processing Crew
 @CrewBase
 class LeadProcessingCrew:
     """Lead Qualification, Categorization, and Prioritization Crew"""
@@ -18,6 +21,7 @@ class LeadProcessingCrew:
     agents_config = os.path.abspath(os.path.join(os.path.dirname(__file__), "../config/agents.yaml"))
     tasks_config = os.path.abspath(os.path.join(os.path.dirname(__file__), "../config/tasks.yaml"))
 
+    # Define agents and tasks
     @agent
     def lead_qualification_agent(self) -> Agent:
         return Agent(
@@ -67,6 +71,7 @@ class LeadProcessingCrew:
             agent=self.lead_prioritization_agent()
         )
 
+    # Define the crew using the agents and tasks
     @crew
     def crew(self) -> Crew:
         return Crew(

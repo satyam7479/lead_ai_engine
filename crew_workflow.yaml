@@ -14,19 +14,48 @@ crew:
   workflow:
     - task: lead_qualification_task
       agent: lead_qualification_agent
+      inputs:
+        - Lead Source: {lead_source}
+        - Lead Status: {lead_status}
+        - Lead Country: {lead_country}
+        - Lead Email: {lead_email}
+        - Lead Description: {lead_description}
+        - Lead Date: {lead_date}
+      outputs:
+        - Qualified Status: {qualified_status}
+        - Service Category: {service_category}
       next:
         qualified: service_categorization_task
         not_qualified: end
     - task: service_categorization_task
       agent: service_categorization_agent
+      inputs:
+        - Lead Description: {lead_description}
+        - Lead Type: {lead_type}
+        - Lead Status: {lead_status}
+      outputs:
+        - Service Category: {service_category}
+        - Technology/Platform: {technology}
+        - Complexity Level: {complexity}
       next: lead_prioritization_task
     - task: lead_prioritization_task
       agent: lead_prioritization_agent
+      inputs:
+        - Lead Date: {lead_date}
+        - Lead Category: {lead_category}
+        - Technology: {technology}
+        - Complexity: {complexity}
+        - Lead Country: {lead_country}
+        - Lead Email: {lead_email}
+        - Lead Description: {lead_description}
+      outputs:
+        - Priority Level: {priority_level}
+        - Justification: {justification}
+        - Flagged for Manual Review: {flagged_for_manual_review}
       next: end
   final_output:
     - Qualified Status (Yes/No)
-    - Service Category
-    - Technology/Platform
-    - Complexity Level (Simple, Advanced, Enterprise)
     - Priority Level (High, Medium, Low)
     - Lead Country & Email Domain
+    - Justification
+    - Flagged for Manual Review

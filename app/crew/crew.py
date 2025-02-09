@@ -1,5 +1,6 @@
+# This file contains the task functions that are used to run, train, replay, and test the crew.
 import sys
-from app.agents_tasks.agents import LeadProcessingCrew
+from app.crew.agents_tasks import LeadProcessingCrew
 
 def run(inputs):
     """
