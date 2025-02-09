@@ -1,0 +1,32 @@
+crew:
+  name: Lead Qualification & Prioritization Workflow
+  description: >
+    This workflow processes leads through qualification, categorization, and prioritization 
+    to help the sales team focus on high-value opportunities.
+  agents:
+    - lead_qualification_agent
+    - service_categorization_agent
+    - lead_prioritization_agent
+  tasks:
+    - lead_qualification_task
+    - service_categorization_task
+    - lead_prioritization_task
+  workflow:
+    - task: lead_qualification_task
+      agent: lead_qualification_agent
+      next:
+        qualified: service_categorization_task
+        not_qualified: end
+    - task: service_categorization_task
+      agent: service_categorization_agent
+      next: lead_prioritization_task
+    - task: lead_prioritization_task
+      agent: lead_prioritization_agent
+      next: end
+  final_output:
+    - Qualified Status (Yes/No)
+    - Service Category
+    - Technology/Platform
+    - Complexity Level (Simple, Advanced, Enterprise)
+    - Priority Level (High, Medium, Low)
+    - Lead Country & Email Domain

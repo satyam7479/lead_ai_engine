@@ -1,0 +1,94 @@
+lead_qualification_task:
+  description: >
+    Analyze the lead details to determine if the lead qualifies for further assessment based on our criteria.
+    Consider the following factors:
+    - Technology Stack Alignment: Identify if the lead mentions a technology stack we support (e.g., WordPress, Magento, React, Laravel).
+    - Industry Categorization: Categorize the lead based on predefined industries such as E-commerce & Retail, Healthcare & Fitness, etc.
+    - Lead Status: Only consider leads marked as "New" for qualification (exclude "Suspect").
+    
+    Lead Details:
+    - Lead Source: {lead_source}
+    - Lead Status: {lead_status}
+    - Lead Country: {lead_country}
+    - Lead Email: {lead_email}
+    - Lead Description: {lead_description}
+    - Lead Date: {lead_date}
+    
+    Make a final decision on whether the lead qualifies and identify the relevant service category.
+
+  expected_output: >
+    - Qualified/Unqualified Qualified status based on technology stack, industry, and lead status.
+    - If qualified, assign the appropriate service category (e.g., Web Development, App Development, AI/ML).
+
+
+service_categorization_task:
+  description: >
+    Analyze the lead details to determine the appropriate service category, required technologies, and project complexity.
+    Consider the following factors:
+    - **Service Category Assignment:** Categorize the project into one of the following:
+      - Web Development
+      - Mobile App Development
+      - E-commerce
+    - **Technology/Platform Identification:** Identify relevant technologies mentioned in the lead description (e.g., WordPress, React, AWS).
+    - **Complexity Classification:** Determine the project's complexity level:
+      - Simple: Small to medium-sized projects with basic functionality (e.g., personal websites, small business sites).
+      - Advanced: Medium to large projects with custom UI and integrations (e.g., e-commerce platforms, SaaS).
+      - Enterprise: Large-scale, complex projects requiring enterprise-level integrations (e.g., AWS, Kubernetes, ERP systems).
+
+    Lead Details:
+    - Lead Description: {lead_description}
+    - Lead Type: {lead_type}
+    - Lead Status: {lead_status}
+
+    Assign the appropriate service category, identify technologies, and classify project complexity.
+
+  expected_output: >
+    - Service Category (e.g., Web Development, Mobile App Development, E-commerce).
+    - Identified Technologies/Platforms (e.g., React, Magento, Laravel).
+    - Complexity Level (Simple, Advanced, Enterprise).
+    - Qualified Status: (get from previous agent execution expected_output)
+
+lead_prioritization_task:
+  description: >
+    Analyze the lead details and assign a priority level based on the following criteria:
+    - **Country Priority:** Leads from the following countries are High Priority: USA, Canada, UK, Australia, Norway, Denmark, Finland, Germany.
+    - **Email Domain:** Business email domains (e.g., company.com, .org) are prioritized over free email domains (e.g., Gmail, Hotmail).
+    - **Customer Readiness & Urgency:** Identify phrases indicating urgency, such as:
+      - "We need a proposal"
+      - "Can you start by [specific date]?”
+      - "What are your rates?"
+    - **Complexity:** Enterprise-level projects are automatically marked as High Priority.
+    - **Conflicts:** If there are conflicting indicators (e.g., priority country but low readiness), assign Low Priority and flag for manual review.
+
+    **Lead Priority Levels:**
+    - **High Priority:**
+      - Leads from priority countries.
+      - Business email domains.
+      - Urgent project requests (proposal requests, specific deadlines, rate inquiries).
+      - Enterprise-level projects.
+    - **Medium Priority:**
+      - Leads from non-priority countries but with a business email.
+      - Clear project descriptions with no urgent timeline.
+    - **Low Priority:**
+      - Leads from non-priority countries.
+      - Personal email domains (e.g., Gmail, Hotmail).
+      - General inquiries with no urgency or clear project details.
+      - Conflicting cases flagged for manual review.
+
+    **Lead Details:**
+    - Lead Date: {lead_date}
+    - **Lead Category:** {lead_category}
+    - **Technology:** Use the technology Received from `service_categorization_task`
+    - **Complexity:** Use the Complexity Received from `service_categorization_task`
+    - Lead Country: {lead_country}
+    - Lead Email: {lead_email}
+    - Lead Description: {lead_description}
+
+    Assign the appropriate priority level and flag conflicting leads for manual handling.
+
+  expected_output: >
+    - Assigned Priority Level (High, Medium, Low).
+    - Qualified Status: (get from previous agent execution expected_output)
+    - Justification based on country, email domain, urgency, and complexity.
+    - Flagging of conflicting leads requiring manual review.
+
