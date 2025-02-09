@@ -1,4 +1,4 @@
-# lead_ai_engine
+# Lead AI Engine
 
 ## Overview
 
@@ -43,26 +43,6 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     ```sh
     pipenv run main
     ```
-
-## Directory Structure
-app/
-    crew/
-        agents_tasks.py
-        crew.py
-    config/
-        agents.yaml
-        tasks.yaml
-    helper/
-        general_helper.py
-        llm_helper.py
-.env
-.gitignore
-crew_workflow.yaml
-lead_data.xlsx
-main.py
-Pipfile
-Pipfile.lock
-README.md
 
 ## Usage
 The main application uses Streamlit to provide a web interface for adding, reprocessing, and batch uploading leads. Open your web browser and navigate to the provided URL after running the application.
