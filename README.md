@@ -39,7 +39,14 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     ```sh
     pipenv run main
     ```
-
+## Change llm configuration (Gemini or Ollama) and uncomment the llm you want to run
+    Navigate:   ```sh
+               app/crew/agents_tasks.py
+                ```
+    # Load LLM configuration (Gemini or Ollama)
+    llm = LlmHelper.GeminiConnection()
+    # llm = LlmHelper.llamaConnection()
+    
 ## For any issues
 1.   Ensure you are running the code inside the correct virtual environment (pipenv).
 2.   Ensure you have selected the correct Interpreter as of your pipenv env name
