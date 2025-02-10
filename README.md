@@ -18,14 +18,15 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     cd lead_ai_engine
     ```
 
-2. Create a  file in the root directory and add the necessary environment variables:
+2. Create a secrets.toml file in the root directory and add the necessary environment variables:
 
-    ```env
+    ```secrets.toml
     # Example .env file
     LLM_API_KEY=your_api_key_here
     LLAMA_BASE_URL=your_base_url
     GEMINI_MODEL=gemini/<your gemini model name>
     GEMINI_API_KEY=your gemini api key
+    EXCEL_PATH=lead_data.xlsx
     ```
 4. For any issues
 4.1. Ensure you are running the code inside the correct virtual environment (pipenv).
