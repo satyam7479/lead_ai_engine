@@ -24,13 +24,43 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     # Example .env file
     LLM_API_KEY=your_api_key_here
     LLAMA_BASE_URL=your_base_url
+    GEMINI_MODEL=gemini/<your gemini model name>
+    GEMINI_API_KEY=your gemini api key
     ```
-## Running the Application
-
-1. Activate the Pipenv shell:
+4. For any issues
+4.1. Ensure you are running the code inside the correct virtual environment (pipenv).
+4.2. Ensure you have selected the correct Interpreter as of your pipenv env name
+4.3. Is still getting any error please update your "Pipfile" with the below with ensuring you are using python 3.10 version:
 
     ```sh
-    pipenv shell
+    [[source]]
+    url = "https://pypi.org/simple"
+    verify_ssl = true
+    name = "pypi"
+
+    [packages]
+    streamlit = "==1.41.1"
+    httpx = "==0.27.2"
+    python-dotenv = "==1.0.1"
+    numpy = "==1.26.4"
+    crewai = "==0.100.1"
+    crewai-tools = "==0.33.0"
+    xlsxwriter = "3.2.2"
+    pyyaml = "==6.0.2"
+
+    [dev-packages]
+
+    [requires]
+    python_version = "3.10"
+
+    [scripts]
+    main = "streamlit run main.py"
+    ```
+
+4.4. If still getting any error, please update pipenv dependencies:
+
+    ```sh
+    pipenv update
     ```
 2. Install dependencies using Pipenv:
 
