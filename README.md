@@ -20,8 +20,8 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
 
 2. Create a secrets.toml file in the root directory and add the necessary environment variables:
 
-    ```secrets.toml
-    # Example .env file
+    ```
+    # Example secrets.toml file
     LLM_API_KEY=your_api_key_here
     LLAMA_BASE_URL=your_base_url
     GEMINI_MODEL=gemini/<your gemini model name>
