@@ -22,11 +22,11 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
 
     ```
     # Example secrets.toml file
-    LLM_API_KEY=your_api_key_here
-    LLAMA_BASE_URL=your_base_url
-    GEMINI_MODEL=gemini/<your gemini model name>
-    GEMINI_API_KEY=your gemini api key
-    EXCEL_PATH=lead_data.xlsx
+    LLAMA_MODEL = "ollama/llama3.2:latest"
+    LLAMA_BASE_URL = "http://localhost:11434"
+    GEMINI_MODEL = "gemini/gemini_model_name"
+    GEMINI_API_KEY = "your-secret-api-key"
+    EXCEL_PATH = "lead_data.xlsx"
     ```
 3. Install dependencies using Pipenv:
 
