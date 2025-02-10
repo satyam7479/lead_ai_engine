@@ -57,8 +57,12 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     [scripts]
     main = "streamlit run main.py"
     ```
+4.5 Delete Pipfile.lock and run the below cmd:
+    ```sh
+    pipenv install
+    ```
 
-4.4. If still getting any error, please update pipenv dependencies:
+4.6. If still getting any error, please update pipenv dependencies:
 
     ```sh
     pipenv update
