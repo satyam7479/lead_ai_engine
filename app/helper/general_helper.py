@@ -3,9 +3,11 @@ import streamlit as st
 import pandas as pd
 import re
 from app.crew.agents_tasks import LeadProcessingCrew
+import toml
 
+config = toml.load("secrets.toml")
 # File path for the Excel sheet
-EXCEL_PATH = os.getenv("EXCEL_PATH")
+EXCEL_PATH = config["EXCEL_PATH"]
 
 class Helper:
     # Load and save Excel data
