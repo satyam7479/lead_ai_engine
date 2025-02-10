@@ -5,7 +5,7 @@ import re
 from app.crew.agents_tasks import LeadProcessingCrew
 
 # File path for the Excel sheet
-EXCEL_PATH = "lead_data.xlsx"
+EXCEL_PATH = os.getenv("EXCEL_PATH")
 
 class Helper:
     # Load and save Excel data
