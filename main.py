@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
-from app.helper.general_helper import Helper
+from app.helper.general_helper import Helper, EXCEL_PATH
 
-# File path for the Excel sheet
-EXCEL_PATH = "lead_data.xlsx"
 
 st.title("Lead Engine AI")
 
