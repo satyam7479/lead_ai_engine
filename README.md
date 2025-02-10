@@ -28,11 +28,22 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     GEMINI_API_KEY=your gemini api key
     EXCEL_PATH=lead_data.xlsx
     ```
-4. For any issues
+3. Install dependencies using Pipenv:
 
-4.1> Ensure you are running the code inside the correct virtual environment (pipenv).
-4.2> Ensure you have selected the correct Interpreter as of your pipenv env name
-4.3> Is still getting any error please update your "Pipfile" with the below with ensuring you are using python 3.10 version:
+    ```sh
+    pipenv install
+    ```
+
+4. Run the main application:
+
+    ```sh
+    pipenv run main
+    ```
+
+## For any issues
+1.   Ensure you are running the code inside the correct virtual environment (pipenv).
+2.   Ensure you have selected the correct Interpreter as of your pipenv env name
+3.   If still getting any error please update your "Pipfile" with the below with ensuring you are using python 3.10 version:
 
     ```sh
     [[source]]
@@ -58,26 +69,15 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     [scripts]
     main = "streamlit run main.py"
     ```
-4.5> Delete Pipfile.lock and run the below cmd:
+5.  Delete Pipfile.lock and run the below cmd:
     ```sh
     pipenv install
     ```
 
-4.6> If still getting any error, please update pipenv dependencies:
+6.   If still getting any error, please update pipenv dependencies:
 
     ```sh
     pipenv update
-    ```
-2. Install dependencies using Pipenv:
-
-    ```sh
-    pipenv install
-    ```
-
-3. Run the main application:
-
-    ```sh
-    pipenv run main
     ```
 
 ## Usage
