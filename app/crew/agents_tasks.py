@@ -2,11 +2,7 @@
 from crewai import Agent, Crew, Task, Process
 from crewai.project import CrewBase, agent, crew, task
 import os
-from dotenv import load_dotenv
 from app.helper.llm_helper import LlmHelper
-
-# Load environment variables
-load_dotenv()
 
 # Load LLM configuration (Gemini or Ollama)
 llm = LlmHelper.GeminiConnection()
