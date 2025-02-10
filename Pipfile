@@ -21,3 +21,4 @@ python_version = "3.10"
 
 [scripts]
 main = "streamlit run main.py"
+chromadb = {version = "==0.5.23", allow_prereleases = true}
