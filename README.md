@@ -9,6 +9,7 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
 - Python 3.10
 - Required packages listed in `Pipfile`
 - For versioning please refer requirements.txt file
+- I have used ubuntu-22 or windows-11(This project compatible with both)
 
 ## Setup
 
@@ -110,6 +111,8 @@ Navigate:
     pipenv update
     ```
    Then run your application by: **pipenv run main**
+   
+7. If still getting any error, please contact me at **sk6005848@gmail.com**
 
 ## Usage
 The main application uses Streamlit to provide a web interface for adding, reprocessing, and batch uploading leads. Open your web browser and navigate to the provided URL after running the application.
