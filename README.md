@@ -8,6 +8,7 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
 
 - Python 3.10
 - Required packages listed in `Pipfile`
+- For versioning please refer requirements.txt file
 
 ## Setup
 
