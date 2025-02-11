@@ -27,6 +27,8 @@ COPY . /workspace/
 # Expose Streamlit's default port (Important for external access)
 EXPOSE 8501
 
+ENV CREWAI_OPENTELEMETRY_ENABLED=False
+
 # Set the user
 USER $REMOTE_USER
 
