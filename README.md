@@ -20,29 +20,27 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     cd lead_ai_engine
     ```
 
-2. Create a secrets.toml file in the root directory and add the necessary environment variables:
+2. Create a `secrets.toml` file in the root directory and add the necessary environment variables:
 
     ```
     # Example secrets.toml file
-    LLAMA_MODEL = "ollama/llama3.2:latest"
-    LLAMA_BASE_URL = "http://localhost:11434"
-    GEMINI_MODEL = "gemini/gemini_model_name"
-    GEMINI_API_KEY = "your-secret-api-key"
-    EXCEL_PATH = "lead_data.xlsx"
+    LLAMA_MODEL="ollama/llama3.2:latest"
+    LLAMA_BASE_URL="http://localhost:11434"
+    GEMINI_MODEL="gemini/gemini-1.5-flash"
+    GEMINI_API_KEY="yAIzaSyB1CtoL6UPjbvd6f27rirT64UkfPQHhYJY"
+    EXCEL_PATH="lead_data.xlsx"
     ```
-    
-3. Make virtual env from pipepnv
-   
-    ```sh
-    pipenv shell
-    ```
-    
-4. After successfully creating virtual env from pipenv, please Select the Interpreter for the created venv in your code editor which you are using e.g., vs-code
-   
-5. Install dependencies using Pipenv:
+
+3. Build the Docker container:
 
     ```sh
-    pipenv install
+    docker build -t lead_ai_engine -f .devcontainer/Dockerfile .
+    ```
+
+4. Run the Docker container:
+
+    ```sh
+    docker run -p 8501:8501 -v $(pwd):/workspace --env-file secrets.toml lead_ai_engine
     ```
 
 ## Run the main application:
