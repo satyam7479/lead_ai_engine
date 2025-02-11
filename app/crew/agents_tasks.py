@@ -5,8 +5,8 @@ import os
 from app.helper.llm_helper import LlmHelper
 
 # Load LLM configuration (Gemini or Ollama)
-llm = LlmHelper.GeminiConnection()
-# llm = LlmHelper.llamaConnection()
+# llm = LlmHelper.GeminiConnection()
+llm = LlmHelper.llamaConnection()
 
 # Define the Lead Processing Crew
 @CrewBase
