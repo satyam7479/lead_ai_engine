@@ -6,7 +6,7 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
 
 ### Prerequisites
 
-- Python 3.12 or 3.10(make sure to change pipfile)
+- Python 3.10
 - Required packages listed in `Pipfile`
 
 ## Setup
@@ -28,29 +28,42 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     GEMINI_API_KEY = "your-secret-api-key"
     EXCEL_PATH = "lead_data.xlsx"
     ```
-3. Install dependencies using Pipenv:
+    
+3. Make virtual env from pipepnv
+   
+    ```sh
+    pipenv shell
+    ```
+    
+4. After successfully creating virtual env from pipenv, please Select the Interpreter for the created venv in your code editor which you are using e.g., vs-code
+   
+5. Install dependencies using Pipenv:
 
     ```sh
     pipenv install
     ```
 
-4. Run the main application:
+## Run the main application:
 
     ```sh
     pipenv run main
     ```
-## Change llm configuration (Gemini or Ollama) and uncomment the llm you want to run
-    Navigate:   ```sh
-               app/crew/agents_tasks.py
-                ```
+    
+## Change llm configuration (Gemini or Ollama) by uncommenting the llm you want to run
+Navigate:  
+
+     ```sh
+     app/crew/agents_tasks.py
+     ```
+    
     # Load LLM configuration (Gemini or Ollama)
     llm = LlmHelper.GeminiConnection()
     # llm = LlmHelper.llamaConnection()
     
-## For any issues
+## For any issues/ Troubleshoot
 1.   Ensure you are running the code inside the correct virtual environment (pipenv).
 2.   Ensure you have selected the correct Interpreter as of your pipenv env name
-3.   If still getting any error please update your "Pipfile" with the below with ensuring you are using python 3.10 version:
+3.   If still getting any error please update your "Pipfile" with the below code, by ensuring you are using python 3.10 version:
 
     ```sh
     [[source]]
@@ -76,16 +89,26 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     [scripts]
     main = "streamlit run main.py"
     ```
-5.  Delete Pipfile.lock and run the below cmd:
+    
+4.  Delete Pipfile.lock:
+   
+    ```sh
+    rm Pipfile.lock
+    ```
+    
+5. Install dependencies using Pipenv:
+
     ```sh
     pipenv install
     ```
-
+    Then run your application by: **pipenv run main**
+   
 6.   If still getting any error, please update pipenv dependencies:
 
     ```sh
     pipenv update
     ```
+   Then run your application by: **pipenv run main**
 
 ## Usage
 The main application uses Streamlit to provide a web interface for adding, reprocessing, and batch uploading leads. Open your web browser and navigate to the provided URL after running the application.
