@@ -5,6 +5,5 @@ numpy==1.26.4
 crewai==0.100.1
 crewai-tools==0.33.0
 xlsxwriter==3.2.2
-langchain-google-genai==2.0.9
 pyyaml==6.0.2
 chromadb==0.5.23
