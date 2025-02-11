@@ -8,17 +8,16 @@ streamlit = "==1.41.1"
 httpx = "==0.27.2"
 python-dotenv = "==1.0.1"
 numpy = "==1.26.4"
-crewai = "==0.100.1"
-crewai-tools = "==0.33.0"
-xlsxwriter = "==3.2.2"
-langchain-google-genai = "==2.0.9"
-pyyaml = "6.0.2"
-chromadb = "0.5.23"
+crewai = "*"
+crewai-tools = "*"
+xlsxwriter = "*"
+pyyaml = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.12"
+python_version = "3.10"
 
 [scripts]
 main = "streamlit run main.py"
+chromadb = {version = "==0.5.23", allow_prereleases = true}
