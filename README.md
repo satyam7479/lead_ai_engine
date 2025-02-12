@@ -26,10 +26,40 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     # Example secrets.toml file
     LLAMA_MODEL="ollama/llama3.2:latest"
     LLAMA_BASE_URL="http://localhost:11434"
-    GEMINI_MODEL="gemini/your_gemini_model_name"
-    GEMINI_API_KEY="your_gemini_api_key"
+    GEMINI_MODEL="gemini/gemini-1.5-flash"
+    GEMINI_API_KEY="yAIzaSyB1CtoL6UPjbvd6f27rirT64UkfPQHhYJY"
     EXCEL_PATH="lead_data.xlsx"
     ```
+## Setting Up the Remote User
+
+Ensure that the remote user is set correctly in the `devcontainer.json` and `Dockerfile`. The default user is `verve` with UID `1000` and GID `1000`. If you need to change these values, update the following files:
+
+1. **devcontainer.json**:
+    ```jsonc
+    {
+      "build": {
+        "args": {
+          "REMOTE_USER": "your_username",
+          "NEW_UID": "your_uid",
+          "NEW_GID": "your_gid"
+        }
+      },
+      "remoteUser": "your_username",
+      ...
+    }
+    ```
+
+2. **Dockerfile**:
+    ```dockerfile
+    # Build arguments
+    ARG REMOTE_USER=your_username
+    ARG NEW_UID=your_uid
+    ARG NEW_GID=your_gid
+    ```
+
+Replace `your_username`, `your_uid`, and `your_gid` with the appropriate values for your setup.
+
+After making these changes, rebuild your development container to apply the new settings.
 
 3. Build the Docker container:
 
@@ -42,6 +72,7 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     ```sh
     docker run -p 8501:8501 -v $(pwd):/workspace --env-file secrets.toml lead_ai_engine
     ```
+
 
 ## Run the main application:
 
