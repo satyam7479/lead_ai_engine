@@ -26,8 +26,8 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     # Example secrets.toml file
     LLAMA_MODEL="ollama/llama3.2:latest"
     LLAMA_BASE_URL="http://localhost:11434"
-    GEMINI_MODEL="gemini/gemini-1.5-flash"
-    GEMINI_API_KEY="yAIzaSyB1CtoL6UPjbvd6f27rirT64UkfPQHhYJY"
+    GEMINI_MODEL="gemini/your_gemini_model_name"
+    GEMINI_API_KEY="your_gemini_api_key"
     EXCEL_PATH="lead_data.xlsx"
     ```
 ## Setting Up the Remote User
