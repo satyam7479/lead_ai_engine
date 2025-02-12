@@ -30,6 +30,7 @@ The Lead AI Engine is designed to process leads through qualification, categoriz
     GEMINI_API_KEY="your_gemini_api_key"
     EXCEL_PATH="lead_data.xlsx"
     ```
+# Run the Project with Docker
 ## Setting Up the Remote User
 
 Ensure that the remote user is set correctly in the `devcontainer.json` and `Dockerfile`. The default user is `verve` with UID `1000` and GID `1000`. If you need to change these values, update the following files:
@@ -73,6 +74,21 @@ After making these changes, rebuild your development container to apply the new 
     docker run -p 8501:8501 -v $(pwd):/workspace --env-file secrets.toml lead_ai_engine
     ```
 
+# Run the Project with pipenv
+
+1. Make virtual env from pipepnv
+   
+    ```sh
+    pipenv shell
+    ```
+    
+2. After successfully creating virtual env from pipenv, please Select the Interpreter for the created venv in your code editor which you are using e.g., vs-code
+   
+3. Install dependencies using Pipenv:
+
+    ```sh
+    pipenv install
+    ```
 
 ## Run the main application:
 
